@@ -1,18 +1,20 @@
-package org.Company.models;
+package com.Company.models;
 
 public class Person {
     private long person_id;
-    private String fio;
+    private String full_name;
     private int year_of_birth;
 
-    public Person(long id, String fio, int year_of_birth) {
-        this.person_id = id;
-        this.fio = fio;
+    public Person() {}
+
+    public Person(long person_id, String full_name, int year_of_birth) {
+        this.person_id = person_id;
+        this.full_name = full_name;
         this.year_of_birth = year_of_birth;
     }
 
-    public Person(String fio, int year_of_birth) {
-        this.fio = fio;
+    public Person(String full_name, int year_of_birth) {
+        this.full_name = full_name;
         this.year_of_birth = year_of_birth;
     }
 
@@ -24,12 +26,12 @@ public class Person {
         this.person_id = person_id;
     }
 
-    public String getFio() {
-        return fio;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     public int getYear_of_birth() {
