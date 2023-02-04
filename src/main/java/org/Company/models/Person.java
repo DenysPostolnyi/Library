@@ -1,12 +1,12 @@
 package org.Company.models;
 
 public class Person {
-    private long id;
+    private long person_id;
     private String fio;
     private int year_of_birth;
 
     public Person(long id, String fio, int year_of_birth) {
-        this.id = id;
+        this.person_id = id;
         this.fio = fio;
         this.year_of_birth = year_of_birth;
     }
@@ -16,12 +16,12 @@ public class Person {
         this.year_of_birth = year_of_birth;
     }
 
-    public long getId() {
-        return id;
+    public long getPerson_id() {
+        return person_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPerson_id(long person_id) {
+        this.person_id = person_id;
     }
 
     public String getFio() {
