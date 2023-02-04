@@ -17,3 +17,6 @@ create table Book (
 Connected all useful dependencies(postgreSQL, spring core, spring context, spring-web, spring-webmvc, spring-jdbc, thymeleaf-spring5, servlet, hybernate-validator)
 
 Created configuration java-class files for Spring (MyWebAppInitializer, SpringConfig)
+
+Created beans for jdbc template
+
