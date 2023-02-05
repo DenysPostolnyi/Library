@@ -18,6 +18,20 @@ public class BookController {
         this.bookDAO = bookDAO;
     }
 
+    // show all book
+    @GetMapping()
+    public String index(Model model){
+        model.addAttribute("books", bookDAO.getBooks());
+        return "books/index";
+    }
+
+    // show book
+    @GetMapping("/{id}")
+    public String showBook(@PathVariable("id") long id, Model model){
+        model.addAttribute("book", bookDAO.getBook(id));
+        return "books/show";
+    }
+
     // adding book
     @GetMapping("/new")
     public String newBook(@ModelAttribute("book") Book book){
@@ -27,7 +41,7 @@ public class BookController {
     @PostMapping()
     public String addBook(@ModelAttribute("book") Book book){
         bookDAO.addBook(book);
-        return "redirect:/";
+        return "redirect:/books";
     }
 
     // updating book
@@ -40,13 +54,13 @@ public class BookController {
     @PatchMapping("/{id}")
     public String updateBook(@ModelAttribute("book")Book book, @PathVariable("id") long id){
         bookDAO.updateBook(id, book);
-        return "redirect:/";
+        return "redirect:/books/{id}";
     }
 
     // deleting book
     @DeleteMapping("/{id}")
     public String deleteBook(@PathVariable("id") long id){
         bookDAO.deleteBook(id);
-        return "redirect:/";
+        return "redirect:/books";
     }
 }
