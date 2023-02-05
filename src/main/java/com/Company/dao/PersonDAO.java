@@ -16,7 +16,7 @@ public class PersonDAO {
 
     // add person to DB
     public void addPerson(Person person){
-        jdbcTemplate.update("INSERT INTO Person (full_name, year_of_birth) VALUES (?, ?)", person.getFull_name(), person.getYear_of_birth());
+        jdbcTemplate.update("INSERT INTO Person (full_name, year_of_birth) VALUES (?, ?)", person.getFullName(), person.getYearOfBirth());
     }
 
     // get one person from DB
@@ -26,7 +26,7 @@ public class PersonDAO {
 
     //update person
     public void updatePerson(long id, Person person){
-        jdbcTemplate.update("UPDATE Person SET full_name=?, year_of_birth=? WHERE person_id = ?",person.getFull_name(), person.getYear_of_birth(), id);
+        jdbcTemplate.update("UPDATE Person SET full_name=?, year_of_birth=? WHERE person_id = ?",person.getFullName(), person.getYearOfBirth(), id);
     }
 
     //delete person

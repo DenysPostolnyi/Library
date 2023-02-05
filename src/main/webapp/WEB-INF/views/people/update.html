@@ -5,21 +5,21 @@
     <title>Edit person</title>
 </head>
 <body>
-<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getPerson_id()})}" th:object="${person}">
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getPersonId()})}" th:object="${person}">
     <div>
         <label for="full_name">Enter client's full name</label>
-        <input id="full_name" name="fio" type="text" th:field="*{full_name}">
+        <input id="full_name" name="fio" type="text" th:field="*{fullName}">
     </div>
     <br>
     <div>
         <label for="year_of_birthday">Enter</label>
-        <input id="year_of_birthday" name="year_of_birthday" type="text" th:field="*{year_of_birth}">
+        <input id="year_of_birthday" name="year_of_birthday" type="text" th:field="*{yearOfBirth}">
     </div>
     <br>
-    <input type="submit" value="Create!">
+    <input type="submit" value="Update!">
 </form>
 
-<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPerson_id()})}">
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonId()})}">
     <input type="submit" value="Delete">
 </form>
 </body>

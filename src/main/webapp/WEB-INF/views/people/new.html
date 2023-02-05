@@ -8,12 +8,12 @@
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
   <div>
     <label for="full_name">Enter client's full name</label>
-    <input id="full_name" name="fio" type="text" th:field="*{full_name}">
+    <input id="full_name" name="full_name" type="text" th:field="*{fullName}">
   </div>
   <br>
   <div>
-    <label for="year_of_birthday">Enter</label>
-    <input id="year_of_birthday" name="year_of_birthday" type="text" th:field="*{year_of_birth}">
+    <label for="year_of_birthday">Enter year of client's birthday</label>
+    <input id="year_of_birthday" name="year_of_birthday" type="text" th:field="*{yearOfBirth}">
   </div>
   <br>
   <input type="submit" value="Create!">

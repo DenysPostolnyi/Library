@@ -1,36 +1,42 @@
 package com.Company.models;
 
 public class Book {
-    private long book_id;
-    private long person_id;
+    private long bookID;
+    private long personId;
     private String name;
-    private String author_full_name;
-    private int year_of_pub;
+    private String authorFullName;
+    private int yearOfPub;
 
     public Book() {}
 
-    public Book(long book_id, long person_id, String name, String author_full_name, int year_of_pub) {
-        this.book_id = book_id;
-        this.person_id = person_id;
+    public Book(long bookID, long personId, String name, String authorFullName, int yearOfPub) {
+        this.bookID = bookID;
+        this.personId = personId;
         this.name = name;
-        this.author_full_name = author_full_name;
-        this.year_of_pub = year_of_pub;
+        this.authorFullName = authorFullName;
+        this.yearOfPub = yearOfPub;
     }
 
-    public long getBook_id() {
-        return book_id;
+    public Book(String name, String authorFullName, int yearOfPub) {
+        this.name = name;
+        this.authorFullName = authorFullName;
+        this.yearOfPub = yearOfPub;
     }
 
-    public void setBook_id(long book_id) {
-        this.book_id = book_id;
+    public long getBookID() {
+        return bookID;
     }
 
-    public long getPerson_id() {
-        return person_id;
+    public void setBookID(long bookID) {
+        this.bookID = bookID;
     }
 
-    public void setPerson_id(long person_id) {
-        this.person_id = person_id;
+    public long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(long personId) {
+        this.personId = personId;
     }
 
     public String getName() {
@@ -41,19 +47,19 @@ public class Book {
         this.name = name;
     }
 
-    public String getAuthor_fio() {
-        return author_full_name;
+    public String getAuthorFullName() {
+        return authorFullName;
     }
 
-    public void setAuthor_fio(String authorFullName) {
-        this.author_full_name = authorFullName;
+    public void setAuthorFullName(String authorFullName) {
+        this.authorFullName = authorFullName;
     }
 
-    public int getYear_of_pub() {
-        return year_of_pub;
+    public int getYearOfPub() {
+        return yearOfPub;
     }
 
-    public void setYear_of_pub(int year_of_pub) {
-        this.year_of_pub = year_of_pub;
+    public void setYearOfPub(int yearOfPub) {
+        this.yearOfPub = yearOfPub;
     }
 }
