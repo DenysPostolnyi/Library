@@ -5,9 +5,21 @@
     <title>Person</title>
 </head>
 <body>
-<h3 th:text="${person.getFullName()} + ', ' + ${person.getYearOfBirth()}">VALUE</h3>
-<h3>He hasn't taken book yet</h3>
-<a href="/people">Back</a> or <a th:href="@{/people/{id}/edit(id=${person.getPersonId()})}">Edit</a>
+<p th:text="${person.getFullName()} + ', ' + ${person.getYearOfBirth()}">VALUE</p>
+<div th:if="${takenBooks != null}">
+    <div th:each="book: ${takenBooks}">
+        <hr>
+        <h3><strong>Books:</strong></h3>
+        <p th:text="${book.getName()} + ', ' + ${book.getAuthorFullName()} + ', ' + ${book.getYearOfPub()}">book</p>
+    </div>
+</div>
+<div th:if="${takenBooks == null}">
+    <p>He hasn't taken book yet</p>
+</div>
+<hr>
+<div>
+    <a href="/people">Back</a> or <a th:href="@{/people/{id}/edit(id=${person.getPersonId()})}">Edit</a>
+</div>
 <br>
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonId()})}">
     <input type="submit" value="Delete">

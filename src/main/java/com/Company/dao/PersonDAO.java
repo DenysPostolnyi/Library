@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+import com.Company.models.Book;
 @Component
 public class PersonDAO {
     private final JdbcTemplate jdbcTemplate;
@@ -43,4 +43,8 @@ public class PersonDAO {
         }
     }
 
+    // get books that person take
+    public List<Book> getTakenBooks(long id){
+        return jdbcTemplate.query("SELECT * FROM Book WHERE person_id=?", new Object[]{id}, new BookMapper());
+    }
 }
