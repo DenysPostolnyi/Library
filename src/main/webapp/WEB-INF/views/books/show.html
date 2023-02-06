@@ -9,6 +9,9 @@
 <p th:text="${book.getName()} + ', ' + ${book.getAuthorFullName()} + ', ' + ${book.getYearOfPub()}">VALUE</p>
 <div th:if="${personWhoTake != null}">
     <p th:text="${personWhoTake.getFullName()} + ' has this book now'">text</p>
+    <form th:method="GET" th:action="@{/books/{id}/free(id=${book.getBookID()})}">
+        <input type="submit" value="Free book">
+    </form>
 </div>
 <div th:if="${personWhoTake == null}">
     <p>This book is free</p>

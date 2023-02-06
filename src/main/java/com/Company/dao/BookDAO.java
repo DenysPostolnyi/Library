@@ -50,4 +50,9 @@ public class BookDAO {
     public Person isTaken(long id){
         return jdbcTemplate.query("SELECT p.person_id, p.full_name, p.year_of_birth FROM Book AS b INNER JOIN Person AS p on p.person_id = b.person_id WHERE b.book_id = ?", new Object[]{id}, new PersonMapper()).stream().findAny().orElse(null);
     }
+
+    // free book
+    public void freeBook(long id){
+        jdbcTemplate.update("UPDATE Book SET person_id=null WHERE book_id=?", id);
+    }
 }
