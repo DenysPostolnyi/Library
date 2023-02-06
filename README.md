@@ -67,3 +67,4 @@ Choosing person
 
 Person took this book
 ![img_24.png](img/img_24.png)
+
