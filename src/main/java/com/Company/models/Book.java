@@ -1,10 +1,23 @@
 package com.Company.models;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Book {
     private long bookID;
     private long personId;
+
+    @NotEmpty(message = "Field must be filed")
+    @Size(min = 1, max = 200, message = "Book's name must be grater then 1 and lower then 200")
     private String name;
+
+    @NotEmpty(message = "Field must be filed")
+    @Pattern(regexp = "[A-Z]\\w+ [A-Z]\\w+", message = "Author's full name should be in this format: Name, Last Name")
     private String authorFullName;
+
+    @Min(value = 1700, message = "Year must be grater than 1700")
     private int yearOfPub;
 
     public Book() {}

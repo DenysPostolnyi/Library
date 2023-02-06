@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Component
@@ -58,5 +59,10 @@ public class BookDAO {
     // select person
     public void selectPerson(long id, long personId){
         jdbcTemplate.update("UPDATE Book SET person_id=? WHERE book_id=?", personId, id);
+    }
+
+    // check if book with this name is present
+    public Optional<Book> getBook(String name){
+        return jdbcTemplate.query("SELECT * FROM Book WHERE book_name=?", new Object[]{name}, new BookMapper()).stream().findAny();
     }
 }

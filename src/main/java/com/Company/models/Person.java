@@ -1,8 +1,17 @@
 package com.Company.models;
 
+import javax.validation.constraints.*;
+
 public class Person {
     private long personId;
+
+    // Name, Last Name, Surname - valid full name
+    // John Kennedy
+    @NotEmpty(message = "Field must be filed")
+    @Pattern(regexp = "[A-Z]\\w+ [A-Z]\\w+", message = "Person's full name should be in this format: Name, Last Name")
     private String fullName;
+
+    @Min(value = 1900, message = "Year must be grater than 1900")
     private int yearOfBirth;
 
     public Person() {}

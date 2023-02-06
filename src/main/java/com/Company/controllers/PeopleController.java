@@ -2,20 +2,26 @@ package com.Company.controllers;
 
 import com.Company.dao.PersonDAO;
 import com.Company.models.Person;
+import com.Company.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+
+import javax.validation.Valid;
 
 
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
     private final PersonDAO personDAO;
+    private final PersonValidator personValidator;
 
     @Autowired
-    public PeopleController(PersonDAO personDAO) {
+    public PeopleController(PersonDAO personDAO, PersonValidator personValidator) {
         this.personDAO = personDAO;
+        this.personValidator = personValidator;
     }
 
     // show all people
@@ -42,13 +48,17 @@ public class PeopleController {
     }
 
     @PostMapping()
-    public String addPerson(@ModelAttribute("person") Person person) {
+    public String addPerson(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
+        personValidator.validate(person, bindingResult);
+        if(bindingResult.hasErrors()){
+            return "people/new";
+        }
         personDAO.addPerson(person);
         return "redirect:/people";
     }
     ///////////////////////////////////////////////////
 
-    // updating existing person
+    // updating person
     @GetMapping("/{id}/edit")
     public String changePerson(@PathVariable("id") long id, Model model) {
         model.addAttribute("person", personDAO.getPerson(id));
@@ -56,7 +66,12 @@ public class PeopleController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") Person person, @PathVariable("id") long id) {
+    public String update(@PathVariable("id") long id, @ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
+        person.setPersonId(id);
+        personValidator.validate(person, bindingResult);
+        if(bindingResult.hasErrors()){
+            return "people/update";
+        }
         personDAO.updatePerson(id, person);
         return "redirect:/people/{id}";
     }

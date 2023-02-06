@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
+
 import com.Company.models.Book;
 @Component
 public class PersonDAO {
@@ -46,5 +48,10 @@ public class PersonDAO {
     // get books that person take
     public List<Book> getTakenBooks(long id){
         return jdbcTemplate.query("SELECT * FROM Book WHERE person_id=?", new Object[]{id}, new BookMapper());
+    }
+
+    // check by full name if person is present
+    public Optional<Person> getPerson(String fullName){
+        return jdbcTemplate.query("SELECT * FROM Person WHERE full_name=?", new Object[]{fullName}, new PersonMapper()).stream().findAny();
     }
 }
