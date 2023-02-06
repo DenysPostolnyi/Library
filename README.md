@@ -2,7 +2,7 @@
 
 Application for library management
 
-## Задача:
+## Task:
 
 The local library wants to switch to digital accounting of books. You need to develop a web application for them. Librarians should be able to register readers, lend books to them, and free books (after the reader returns the book to the library).
 <hr>
