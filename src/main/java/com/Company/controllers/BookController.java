@@ -34,7 +34,6 @@ public class BookController {
         model.addAttribute("books", bookDAO.getBooks());
         return "books/index";
     }
-    ///////////////////////////////////////////////////
 
     // show book
     @GetMapping("/{id}")
@@ -44,7 +43,6 @@ public class BookController {
         model.addAttribute("people", personDAO.getPeople());
         return "books/show";
     }
-    ///////////////////////////////////////////////////
 
     // adding book
     @GetMapping("/new")
@@ -62,7 +60,6 @@ public class BookController {
         bookDAO.addBook(book);
         return "redirect:/books";
     }
-    ///////////////////////////////////////////////////
 
     // updating book
     @GetMapping("/{id}/edit")
@@ -81,7 +78,6 @@ public class BookController {
         bookDAO.updateBook(id, book);
         return "redirect:/books/{id}";
     }
-    ///////////////////////////////////////////////////
 
     // deleting book
     @DeleteMapping("/{id}")
@@ -89,7 +85,6 @@ public class BookController {
         bookDAO.deleteBook(id);
         return "redirect:/books";
     }
-    ///////////////////////////////////////////////////
 
     // free book
     @GetMapping("/{id}/free")
@@ -97,7 +92,6 @@ public class BookController {
         bookDAO.freeBook(id);
         return "redirect:/books/{id}";
     }
-    ///////////////////////////////////////////////////
 
     // select person who take book
     @PatchMapping("/{id}/select-person")
@@ -105,5 +99,4 @@ public class BookController {
         bookDAO.selectPerson(id, person.getPersonId());
         return "redirect:/books/{id}";
     }
-    ///////////////////////////////////////////////////
 }

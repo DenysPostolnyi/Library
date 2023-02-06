@@ -15,5 +15,4 @@ public class PersonMapper implements RowMapper<Person> {
         person.setYearOfBirth(rst.getInt("year_of_birth"));
         return person;
     }
-
 }

@@ -30,7 +30,6 @@ public class PeopleController {
         model.addAttribute("people", personDAO.getPeople());
         return "people/index";
     }
-    ///////////////////////////////////////////////////
 
     // show person
     @GetMapping("/{id}")
@@ -39,7 +38,6 @@ public class PeopleController {
         model.addAttribute("takenBooks", personDAO.getTakenBooks(id));
         return "people/show";
     }
-    ///////////////////////////////////////////////////
 
     // creating new person
     @GetMapping("/new")
@@ -56,7 +54,6 @@ public class PeopleController {
         personDAO.addPerson(person);
         return "redirect:/people";
     }
-    ///////////////////////////////////////////////////
 
     // updating person
     @GetMapping("/{id}/edit")
@@ -75,7 +72,6 @@ public class PeopleController {
         personDAO.updatePerson(id, person);
         return "redirect:/people/{id}";
     }
-    ///////////////////////////////////////////////////
 
     // deleting person
     @DeleteMapping("/{id}")
