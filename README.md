@@ -48,10 +48,15 @@ Application for library management
 <hr>
 
 ### Скриншоты страниц
+### Page with list of all peoples (url: /people)
+![img_15.png](img_15.png)
+### Page for creating new person (url: /people/new)
+![img_14.png](img_14.png)
 
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+### Page for updating person (url: /people/{id}/edit)
+![img_16.png](img_16.png)
+
+
 ![img_3.png](img_3.png)
 ![img_4.png](img_4.png)
 ![img_5.png](img_5.png)
