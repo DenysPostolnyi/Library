@@ -5,7 +5,6 @@ import com.Company.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.thymeleaf.standard.expression.GreaterThanExpression;
 
 import java.util.List;
 
@@ -54,5 +53,10 @@ public class BookDAO {
     // free book
     public void freeBook(long id){
         jdbcTemplate.update("UPDATE Book SET person_id=null WHERE book_id=?", id);
+    }
+
+    // select person
+    public void selectPerson(long id, long personId){
+        jdbcTemplate.update("UPDATE Book SET person_id=? WHERE book_id=?", personId, id);
     }
 }

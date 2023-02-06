@@ -6,14 +6,14 @@
 </head>
 <body>
 <p th:text="${person.getFullName()} + ', ' + ${person.getYearOfBirth()}">VALUE</p>
-<div th:if="${takenBooks != null}">
+<div th:if="${takenBooks.size()>0}">
+    <hr>
+    <h3><strong>Books:</strong></h3>
     <div th:each="book: ${takenBooks}">
-        <hr>
-        <h3><strong>Books:</strong></h3>
         <p th:text="${book.getName()} + ', ' + ${book.getAuthorFullName()} + ', ' + ${book.getYearOfPub()}">book</p>
     </div>
 </div>
-<div th:if="${takenBooks == null}">
+<div th:if="${takenBooks.size()==0}">
     <p>He hasn't taken book yet</p>
 </div>
 <hr>
