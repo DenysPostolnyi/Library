@@ -53,18 +53,18 @@ set automatically generation of id.
 ![img_19.png](img/img_19.png)
 
 ### Page for info about person (url: /person/{id})
-Person who didn't take book
-![img_20.png](img/img_20.png)
-Person who took book
-![img_21.png](img/img_21.png)
+Person who didn't take book \
+![img_20.png](img/img_20.png) \
+Person who took book \
+![img_21.png](img/img_21.png) \
 
 ### Page for info about book (url: /books/{id})
-Book in library and free
-![img_22.png](img/img_22.png)
+Book in library and free \
+![img_22.png](img/img_22.png) \
 
-Choosing person
-![img_23.png](img/img_23.png)
+Choosing person \
+![img_23.png](img/img_23.png) \
 
-Person took this book
-![img_24.png](img/img_24.png)
+Person took this book \
+![img_24.png](img/img_24.png) \
 
