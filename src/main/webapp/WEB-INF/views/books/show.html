@@ -7,7 +7,12 @@
 <body>
 
 <p th:text="${book.getName()} + ', ' + ${book.getAuthorFullName()} + ', ' + ${book.getYearOfPub()}">VALUE</p>
-<br>
+<div th:if="${personWhoTake != null}">
+    <p th:text="${personWhoTake.getFullName()} + ' has this book now'">text</p>
+</div>
+<div th:if="${personWhoTake == null}">
+    <p>This book is free</p>
+</div>
 <hr>
 <div>
     <a href="/books">Back</a> or <a th:href="@{/books/{id}/edit(id=${book.getBookID()})}">Edit</a>

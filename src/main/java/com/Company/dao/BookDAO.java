@@ -1,9 +1,11 @@
 package com.Company.dao;
 
 import com.Company.models.Book;
+import com.Company.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.thymeleaf.standard.expression.GreaterThanExpression;
 
 import java.util.List;
 
@@ -42,5 +44,10 @@ public class BookDAO {
         if(getBook(id) != null){
             jdbcTemplate.update("DELETE FROM Book WHERE book_id=?", id);
         }
+    }
+
+    // check if book is taken
+    public Person isTaken(long id){
+        return jdbcTemplate.query("SELECT p.person_id, p.full_name, p.year_of_birth FROM Book AS b INNER JOIN Person AS p on p.person_id = b.person_id WHERE b.book_id = ?", new Object[]{id}, new PersonMapper()).stream().findAny().orElse(null);
     }
 }
