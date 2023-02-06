@@ -2,7 +2,6 @@ package com.Company.dao;
 
 import com.Company.models.Person;
 import org.springframework.jdbc.core.RowMapper;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

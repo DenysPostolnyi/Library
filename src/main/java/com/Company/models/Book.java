@@ -13,6 +13,8 @@ public class Book {
     @Size(min = 1, max = 200, message = "Book's name must be grater then 1 and lower then 200")
     private String name;
 
+    // Name, Last Name, Surname - valid full name
+    // John Kennedy
     @NotEmpty(message = "Field must be filed")
     @Pattern(regexp = "[A-Z]\\w+ [A-Z]\\w+", message = "Author's full name should be in this format: Name, Last Name")
     private String authorFullName;
