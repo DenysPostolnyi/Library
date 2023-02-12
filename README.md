@@ -1,6 +1,6 @@
 # Library
 
-Application for library management
+Application for library management using Spring MVC and JDBCTemplate.
 
 ## Task:
 
